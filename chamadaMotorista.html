@@ -1,0 +1,91 @@
+<div class="modal modal-overlay" ui-if='chamadaMotorista' ui-state='chamadaMotorista'>
+  <div class="scrollable">
+    <div class="scrollable-content section">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 ng-if="estadoTela === 1" class="modal-title">Localizando Motorista</h4>
+            <h4 ng-if="estadoTela === 2" class="modal-title">Dados da Sua Viagem</h4>
+            <h4 ng-if="estadoTela === 3 || estadoTela === 9" class="modal-title">Aviso</h4>
+          </div>
+          <div class="modal-body">
+            <div ng-if="estadoTela === 1" class="modal-body" style="padding-top: 70px;">
+              <div class="app-content-loading">
+                <div id="preloader" class="white">
+                  <h5 style="text-align: center;margin-top: 50%;height: 40px;display: block;font-weight: bold;">
+                    Localizando seu motorista...
+                  </h5>
+                  <div class="pulse black">
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div ng-if="estadoTela === 2" class="modal-body">
+              <div class="row">
+                <div class="col-sm-12">
+                  <h4 style="color: #006ee6;">Motorista</h4>
+                </div>
+                <div class="col-sm-6">
+                  <label>Nome:</label> {{dadosViagem.nome}}
+                </div>
+                <div class="col-sm-6">
+                  <label>Celular:</label> {{dadosViagem.celular}}
+                </div>
+                <div class="col-sm-12">
+                  <h4 style="color: #006ee6;">Veículo</h4>
+                </div>
+                <div class="col-sm-6">
+                  <label>Placa:</label> {{dadosViagem.placa}}
+                </div>
+                <div class="col-sm-6">
+                  <label>Marca:</label> {{dadosViagem.marca}}
+                </div>
+                <div class="col-sm-6">
+                  <label>Modelo:</label> {{dadosViagem.modelo}}
+                </div>
+                <div class="col-sm-6">
+                  <label>Cor:</label> {{dadosViagem.cor}}
+                </div>
+                <div class="col-sm-12">
+                  <h4 style="color: #006ee6;">Viagem</h4>
+                </div>
+                <div class="col-sm-6">
+                  <label>Estimativa de Tempo:</label> {{dadosStatus.estimativaTempo}} minutos
+                </div>
+                <div class="col-sm-6">
+                  <label>Status:</label> {{dadosStatus.result}}
+                </div>
+              </div>
+            </div>
+          </div>
+          <div ng-if="estadoTela === 3" class="modal-body">
+            <h4 style="text-align:center;color: #000000;">
+              {{resultado}}
+            </h4>
+          </div>
+          <div ng-if="estadoTela === 9" class="modal-body">
+            <h4 style="text-align:center;color: #006ee6;">
+              Solicitação Cancelada.
+            </h4>
+          </div>
+          <div class="modal-footer">
+            <button ng-if="estadoTela === 3" ui-turn-off="chamadaMotorista" class="btn btn-cancelar">
+          <span class="fa fa-times" aria-hidden="true"></span>
+          Voltar</button>
+            <button ng-if="estadoBotao === 9" ng-click="cancelar()" ui-turn-off="chamadaMotorista" class="btn btn-cancelar">
+          <span class="fa fa-times" aria-hidden="true"></span>
+          Cancelar</button>
+            <div ng-if="formaPagamento" class="col-sm-12" style="text-align:center;">
+              <label>Pagamento:</label>{{formaPagamento}}
+            </div>
+            <button ng-if="estadoBotao === 1" ui-turn-off="chamadaMotorista" class="btn btn-primary" ui-turn-on="avaliarViagem" ng-click="confirmaPagamento('S')">
+          <span class="fa fa-money" aria-hidden="true"></span>
+          Confirmar</button>
+            <button ng-if="estadoBotao === 1" ui-turn-off="chamadaMotorista" class="btn btn-danger" ui-turn-on="avaliarViagem" ng-click="confirmaPagamento('N')">
+          <span class="fa fa-thumbs-down" aria-hidden="true"></span>
+          Contestar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

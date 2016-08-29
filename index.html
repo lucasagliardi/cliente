@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link rel="shortcut icon" href="assets/img/favicons/favicon.ico">
+  <link rel="apple-touch-icon" href="assets/img/favicons/apple-touch-icon.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="assets/img/favicons/apple-touch-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="assets/img/favicons/apple-touch-icon-114x114.png">
+  <!--[if lte IE 7]>
+		<script src="assets/js/icons-lte-ie7.js"></script>
+	<![endif]-->
+  <META HTTP-EQUIV="PRAGMA" CONTENT="NO-CACHE">
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="description" content="Driver Vip Cliente - Driver Vip empresa de transporte executivo.">
+  <meta name="keywords" content="Transporte, Executivo, Motorista, Motorista Particular, Vip, Cliente, Viagem, Viagens, Viagens Individuais, Porto Alegre, Região Metropolitana de Porto Alegre.">
+  <meta name="author" content="Driver Vip - http://www.cliente.drivervip.com.br/">
+  <meta property="og:title" content="Driver Vip - Cliente">
+  <meta property="og:site_name" content="Driver Vip - Cliente">
+  <meta property="og:url" content="http://www.cliente.drivervip.com.br/">
+  <meta property="og:type" content="website">
+  <meta property="og:description" content="Driver Vip Cliente - Driver Vip empresa de transporte executivo.">
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  <title>Vip Cliente</title>
+
+  <link rel="stylesheet" href="assets/css/mobile-angular-ui-hover.css" />
+  <link rel="stylesheet" href="assets/css/mobile-angular-ui-base.css" />
+  <link rel="stylesheet" href="assets/css/mobile-angular-ui-desktop.min.css" />
+  <link rel="stylesheet" href="assets/css/demo.css" />
+  <script src="assets/js/angular.min.js"></script>
+  <script src="assets/js/angular-route.min.js"></script>
+  <script src="assets/js/mobile-angular-ui.js"></script>
+  <!-- Required to use $touch, $swipe, $drag and $translate services -->
+  <script src="assets/js/mobile-angular-ui.gestures.js"></script>
+  <script src="assets/js/jquery.js"></script>
+  <script src="assets/js/angular-animate.min.js"></script>
+  <script src="assets/js/toaster.js"></script>
+  <script src="assets/js/angular.audio.js"></script>
+  <script src="assets/js/ngAutocomplete.js"></script>
+  <script src="assets/js/ngMask.min.js"></script>
+  <script src="assets/js/app.js"></script>
+
+</head>
+
+<body ng-app="driverVipApp" ui-prevent-touchmove-defaults>
+
+  <!-- Sidebars -->
+  <div ng-show="$root.authenticated" ng-include="'sidebar.html'" ui-track-as-search-param='true' class="sidebar sidebar-left"></div>
+  <div ng-show="$root.authenticated" ng-include="'sidebarRight.html'" class="sidebar sidebar-right"></div>
+  <!--ui-swipe-right='Ui.turnOn("uiSidebarLeft")' ui-swipe-left='Ui.turnOff("uiSidebarLeft")'-->
+  <div ng-class="{'app': $root.authenticated == true, 'app-login': $root.authenticated == false}">
+
+    <!-- Navbars -->
+    <div class="navbar navbar-app navbar-absolute-top" ng-show="$root.authenticated">
+      <div class="navbar-brand navbar-brand-center" ui-yield-to="title">
+       <img src="assets/img/logo-drivervip-black.png" class="logo-centro image-responsive"/>
+
+      </div>
+      <div class="btn-group pull-left">
+        <div ui-toggle="uiSidebarLeft" style="padding-top: 0;" class="btn sidebar-toggle">
+          <i class="fa fa-bars"></i>
+        </div>
+      </div>
+    </div>
+
+    <!--<div ng-show="$root.authenticated" class="navbar navbar-app navbar-absolute-bottom">
+      <div class="btn-group justified">
+        <a href="#/conta" class="btn btn-navbar"><i class="fa fa-list-alt fa-navbar"></i> Conta</a>
+        <a href="#/viagem" class="btn btn-navbar"><i class="fa fa-home fa-navbar"></i> Início</a>
+        <a href="#/viagens" class="btn btn-navbar"><i class="fa fa fa-history fa-navbar"></i> Viagens</a>
+      </div>
+    </div>-->
+
+    <!-- App Body -->
+    <div class="app-body" ng-class="{loading: loading}">
+      <div ng-show="loading" class="app-content-loading">
+        <div id="preloader">
+          <div class="pulse"></div>
+        </div>
+      </div>
+      <div class="app-content">
+        <ng-view></ng-view>
+      </div>
+    </div>
+  </div>
+  <!-- ~ .app -->
+
+  <div ui-yield-to="modals"></div>
+  <toaster-container></toaster-container>
+  <script>
+       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+       (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+       m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+       })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+       ga('create', 'UA-48036416-1', 'mobileangularui.com');
+       ga('send', 'pageview');
+     </script>
+  <script src="login/login.js"></script>
+  <script src="historicoViagens/historicoViagens.js"></script>
+  <script src="viagem/viagem.js"></script>
+  <script src="http://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyCRWw9g7KxZbSLDMyBIAht00NLp8969iMA"></script>
+
+</body>
+
+</html>

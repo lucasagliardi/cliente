@@ -1,0 +1,46 @@
+<div class="modal modal-overlay" ui-if='dadosSolicitacao' ui-state='dadosSolicitacao'>
+  <div class="scrollable">
+    <div class="scrollable-content section">
+      <div class="modal-dialog">
+        <div ng-if="idResult == 9" class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title">Informação</h4>
+          </div>
+          <div class="modal-body">
+            <h4 style="text-align:center;color: #000000;">
+              {{result}}
+            </h4>
+          </div>
+          <div class="modal-footer">
+            <button ui-turn-off="dadosSolicitacao" class="btn btn-cancelar">
+          <span class="fa fa-times" aria-hidden="true"></span>
+          Voltar</button>
+          </div>
+        </div>
+        <div ng-if="idResult == 1" class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title">Dados da Solicitação</h4>
+          </div>
+          <div class="modal-body">
+            <h4>Origem:</h4>
+            <p>{{enderecoPartida.formatted_address}}</p>
+            <h4>Destino:</h4>
+            <p>{{enderecoDestino.formatted_address}}</p>
+            <h4>Distância:</h4>
+            <p>{{distanciaText}}</p>
+            <h4>Tarifa:</h4>
+            <p>{{tarifa}}</p>
+          </div>
+          <div class="modal-footer">
+            <button ui-turn-off="dadosSolicitacao" class="btn btn-cancelar">
+          <span class="fa fa-times" aria-hidden="true"></span>
+          Voltar</button>
+            <button ui-turn-off="dadosSolicitacao" class="btn btn-azul" ui-turn-on="chamadaMotorista" ng-click="solicitar()">
+          <span class="fa fa-check" aria-hidden="true"></span>
+          Solicitar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

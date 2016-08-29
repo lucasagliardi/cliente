@@ -1,0 +1,32 @@
+<div ui-content-for="title">
+  <span class="nome">Histórico de Viagens</span>
+</div>
+<div class="scrollable">
+  <div class="scrollable-content section section-break">
+
+    <form name="viagemForm" class="padding-top" novalidate>
+      <fieldset>
+        <div class="form-group">
+          <label>Últimos dias</label>
+          <select class="form-control" ng-change="buscarViagens()" ng-model="dias">
+              <option ng-disabled="true" value="">[Selecione]</option>
+              <option ng-selected="true" value="7">7 últimos dias</option>
+              <option value="15">15 últimos dias</option>
+              <option value="30">30 últimos dias</option>
+              <option value="10000">Todos</option>
+          </select>
+        </div>
+    </form>
+    <div class="panel panel-default" ng-repeat="viagem in viagens">
+      <div class="panel-heading">
+        <h3 class="panel-title">{{viagem.Data | date : "dd/MM/y HH:mm"}}</h3>
+      </div>
+      <div class="panel-body ng-binding">
+        <p><label>Origem:</label> {{viagem.Origem}}</p>
+        <p><label>Destino:</label> {{viagem.Destino}}</p>
+        <p><label>Motorista:</label> {{viagem.Motorista}}</p>
+        <p><label>Tarifa:</label> R$ {{viagem.Valor}}</p>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,23 @@
+<div class="scrollable">
+    <div class="scrollable-content section login">
+        <div class="blur">
+            <form role="form" name="loginForm" role="form" novalidate>
+                <fieldset>
+                    <legend style="border:0;"><span class="img"></span></legend>
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="E-mail ou Celular" name="email" ng-model="login.email" required focus>
+                    </div>
+
+                    <div class="form-group">
+                        <input type="password" class="form-control" name="senha" placeholder="Senha" ng-model="login.senha" required>
+                    </div>
+                </fieldset>
+                <button type="submit" class="btn btn-primary btn-block" ng-click="doLogin(login)" ng-disabled="loginForm.$invalid">
+                    <i class="ace-icon fa fa-key"></i> Login
+                </button>
+                <hr>
+                <h5 class="text-center">Não tem um login ainda? <a href="#/signup">Crie sua Conta</a>.</h5>
+            </form>
+        </div>
+    </div>
+</div>

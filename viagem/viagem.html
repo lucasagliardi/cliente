@@ -1,0 +1,25 @@
+<form name="viagemForm" id="viagem-form" class="padding-top viagem" novalidate>
+  <div class="form-group">
+    <input type="text" placeholder="Local de origem" ng-class="{ myFocus: focus, myBlur: blur }" ng-focus="focus=true;blur=false;"
+      ng-blur="blur=true;focus=false;" id="enderecoPartida" class="form-control" required ng-model="viagemForm.enderecoPartida"
+      ng-autocomplete="enderecoPartida" details="enderecoPartida" options="options1" />
+    <button ng-click="ponto=!ponto" class="ponto" type="button" ng-class="{'ponto-on':ponto}"><i class="fa fa-street-view" aria-hidden="true"></i></button>
+    <input type="text" ng-if="ponto" placeholder="Ponto de referência" ng-class="{ myFocus: focus2, myBlur: blur2 } "
+      ng-focus="focus2=true;blur2=false; " ng-blur="blur2=true;focus2=false; " id="pontoReferencia " class="form-control "
+      ng-model="viagem.pontoReferencia " />
+    <input type="text" placeholder="Local de destino" ng-class="{ myFocus: focus2, myBlur: blur2 }" ng-focus="focus2=true;blur2=false;"
+      ng-blur="blur2=true;focus2=false;" id="enderecoDestino" class="form-control" ng-model="viagemForm.enderecoDestino"
+      ng-autocomplete="enderecoDestino" details="enderecoDestino" options="options1" />
+  </div>
+  <button class="btn btn-azul btn-block" ng-if="viagemForm.$valid" ui-turn-on="dadosSolicitacao" ng-click="calcularTarifa();">
+        <span class="fa fa-usd" aria-hidden="true"></span>
+      Calcular Tarifa
+    </button>
+  <div ui-content-for="modals">
+    <div ng-include="'avaliarViagem.html'"></div>
+    <div ng-include="'dadosSolicitacao.html'"></div>
+    <div ng-include="'chamadaMotorista.html'"></div>
+  </div>
+
+</form>
+<div id="mapa"></div>

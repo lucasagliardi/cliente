@@ -1,0 +1,19 @@
+<div class="scrollable">
+  <h1 class="scrollable-header app-name logo">{{$root.nome}}</h1>
+  <div class="scrollable-content">
+    <div class="list-group" ui-turn-off='uiSidebarLeft'>
+      <a class="list-group-item" href="#/viagem"><i class="fa fa-car fa-navbar"></i> Solicitar Viagem<i class="fa fa-chevron-right pull-right"></i></a>
+      <a class="list-group-item" href="#/historicoViagens"><i class="fa fa-history fa-navbar"></i> Viagens<i class="fa fa-chevron-right pull-right"></i></a>
+      <a class="list-group-item" ng-disabled="true" href="#/conta"><i class="fa fa-list-alt fa-navbar"></i> Conta<i class="fa fa-chevron-right pull-right"></i></a>
+      <a class="list-group-item" ng-disabled="true" href="#/conta"><i class="fa fa-money fa-navbar"></i> Pagamento<i class="fa fa-chevron-right pull-right"></i></a>
+      <a class="list-group-item" ng-disabled="true" href="#/conta"><i class="fa fa-ticket fa-navbar"></i> Promoções<i class="fa fa-chevron-right pull-right"></i></a>
+      <a class="list-group-item" ng-disabled="true" href="#/conta"><i class="fa fa-map-o fa-navbar"></i> Trajetos Favoritos<i class="fa fa-chevron-right pull-right"></i></a>
+      <a class="list-group-item" ng-disabled="true"  href="#/conta"><i class="fa fa-question fa-navbar"></i> Ajuda<i class="fa fa-chevron-right pull-right"></i></a>
+      <a class="list-group-item" ng-href="http://parceiro.drivervip.com.br/#/signup" target="_blank" ng-click="logout()"><i class="fa fa-black-tie fa-navbar"></i> Seja um Parceiro Vip<i class="fa fa-chevron-right pull-right"></i></a>
+    </div>
+  </div>
+  <h1 ng-controller="loginCtrl" class="scrollable-footer app-name app-name-logout">
+    <a href="" ng-click="logout()">
+      <i class="fa fa-sign-out"></i> Sair</h1>
+  </a>
+</div>
